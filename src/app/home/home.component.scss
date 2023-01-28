@@ -1,0 +1,131 @@
+ .carrusel{
+    width: 400%;
+ }
+ .carrusel-img{
+  overflow: hidden;
+  width: 400%;
+  align-items: center;
+}
+
+.carrusel ul{
+  display: flex;
+  width: 400%;
+  animation: cambio 10s infinite;
+  padding: 0px;
+}
+.carrusel li{
+  width: 100%;
+  list-style: none;
+}
+.carrusel img{
+ /*  max-width: 150%; */
+  height: 500px;
+  display: block;
+  /* margin: auto; */
+}
+
+
+@keyframes cambio{
+  0% {margin-left: 0;}
+  20% {margin-left: 0;}
+
+  25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
+
+  50% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+
+  75% {margin-left: -300%;}
+  100% {margin-left: -300%;}
+}
+
+/*barra*/
+.barra {
+
+  background: #8f4007;; /* Old browsers */
+  background: -moz-linear-gradient(left, #8f4007 7%, #8f4007 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #8f4007 2%,#8f4007 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #8f4007 1%,#8f4007  100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#741d51', endColorstr='#e44e52',GradientType=1 ); /* IE6-9 */
+  display: flex;
+  width:100%;
+}
+.barra p{
+  font-family:'times' ;
+  margin: 10px 0 10px 0;
+}
+.iconopan{
+  background-image:url(/src/assets/pancito.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 35px 35px;
+  margin: auto;
+  text-align: center;
+}
+
+.iconotorta{
+  background-image:url(/src/assets/rebanada.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 48px 48px;
+  margin: auto;
+  text-align: center;
+}
+.iconopostre{
+  background-image:url(/src/assets/background3.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 35px 35px;
+  margin: auto;
+  text-align: center;
+}
+
+/* inicio */
+.info1, .info2, .info3,.info4,.info5{
+  color:white;
+  font-family:georgia;
+}
+/* .inicio{
+  margin: 0;
+  height: 1000px;
+  width: 1283px;
+  font-family: georgia;
+} */
+
+
+/*mostrador*/
+.carta img{
+  width:300px;
+  height:300px;
+}
+
+.info-carta img{
+  width: 82px;
+  height:13px;
+  font-family: 'Georgia';
+}
+.info-carta{
+  background: white;
+  padding: 10px 20px 0 20px;
+  width: 300px;
+  height: 200px;
+  font-size: 16px;
+}
+.info-carta h4{
+  margin-bottom: 5px;
+  font-size:20px;
+}
+
+.carta{
+  padding:  20px 20px 0 20px;
+}
+.row1{
+  display: flex;
+  margin: 10px 118px 0 145px;
+}
+/*Distribución*/
+.dis{
+  margin-left: 790px;
+  height:300px;
+  width:400px;
+}
