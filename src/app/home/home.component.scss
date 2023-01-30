@@ -1,5 +1,5 @@
  .carrusel{
-    width: 400%;
+    width: 25%;
  }
  .carrusel-img{
   overflow: hidden;
@@ -10,7 +10,7 @@
 .carrusel ul{
   display: flex;
   width: 400%;
-  animation: cambio 10s infinite;
+  animation: cambio 15s infinite;
   padding: 0px;
 }
 .carrusel li{
@@ -18,12 +18,10 @@
   list-style: none;
 }
 .carrusel img{
- /*  max-width: 150%; */
-  height: 500px;
+  width: 100%;
+  height: 800px;
   display: block;
-  /* margin: auto; */
 }
-
 
 @keyframes cambio{
   0% {margin-left: 0;}
@@ -37,6 +35,10 @@
 
   75% {margin-left: -300%;}
   100% {margin-left: -300%;}
+}
+
+@media screen {
+
 }
 
 /*barra*/
@@ -85,12 +87,6 @@
   color:white;
   font-family:georgia;
 }
-/* .inicio{
-  margin: 0;
-  height: 1000px;
-  width: 1283px;
-  font-family: georgia;
-} */
 
 
 /*mostrador*/

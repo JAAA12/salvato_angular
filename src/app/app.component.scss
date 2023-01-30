@@ -17,9 +17,9 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr) );/*define el nombre de las líneas y las funciones de tamaño de línea de grid columns.*/
   grid-gap: 1rem;/*nos permite determinar los espaciados entre los elementos.*/
 }
-.footer .container3 {
+/* .footer .container3 {
   padding: 2px;
-}
+} */
 
 .footer #principal a{
   color: rgb(255, 255, 255);
@@ -28,7 +28,7 @@
   display: block;
   padding-top: .5rem;
   text-align: center;
-  margin-right:150px;
+  /* margin-right:150px; */
 }
 
 .footer #secundaria a{
@@ -38,7 +38,7 @@
   display: block;
   padding-top: .5rem;
   text-align: center;
-  margin-left:150px;
+  /* margin-left:150px; */
 }
 
 .footer #principal a:hover
