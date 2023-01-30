@@ -12,7 +12,7 @@
   padding: 3rem 0;/*establece el espacio de relleno requerido por todos los lados de un elemento.*/
   margin-top: 40px;
 }
-.footer .contenedor {
+.footer .container3{
   display: grid;/*especifica si un elemento es tratado como block or inline element y el diseño usado por sus hijos, como flow layout(Diseño de Flujo), grid(Cuadricula) o flex(Flexible). Formalmente la propiedad display establece los tipos de visualización interna y externa de un elemento.*/
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr) );/*define el nombre de las líneas y las funciones de tamaño de línea de grid columns.*/
   grid-gap: 1rem;/*nos permite determinar los espaciados entre los elementos.*/
@@ -60,6 +60,7 @@
   /* justify-content: center;
   justify-content: space-around; */
   /* justify-content: space-between; */
+  text-align: center;
   flex:1 0 auto;
   list-style: none;
 }
@@ -73,6 +74,7 @@
 .sociales ul li a {
   text-decoration: none;
   padding: 2px 5px;
+  text-align: center;
 }
 
 .sociales ul li span{

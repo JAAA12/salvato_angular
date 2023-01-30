@@ -1,0 +1,22 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.btn{
+  background-color: #923a17;
+  color: white;
+  margin:5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.btn:hover{
+  background-color: #e7a429;
+}
+.card-body{
+  width: 600px;
+  height: 400px;
+}
+
