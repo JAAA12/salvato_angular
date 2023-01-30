@@ -1,0 +1,66 @@
+<div class='cuerpo'>
+  <header class='encabezado'>
+      <img class='imglogo' src="../assets/Logosalvato.png" alt="No carga">
+
+           <div class="carrito two columns">
+                  <ul>
+                      <li class="submenu">
+                              <img src="../assets/carro.png" id="img-carrito">
+                              <div id="carro">
+                                   <table id="lista-carrito" class="u-full-width">
+                                      <thead>
+                                      </thead>
+                                          <thead>
+                                              <tr>
+                                                  <th>Imagen</th>
+                                                  <th>Nombre</th>
+                                                  <th>Precio</th>
+                                                  <th>Cantidad</th>
+                                                  <th>Total</th>
+
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                          </tbody>
+                                      </table>
+
+                                      <a href="#" id="vaciar-carrito" class="button u-full-width"><b>Vaciar Carrito</b></a>
+                                      <li class="nav-item">
+                                          <!-- <router-link to="/pantallaRecibo" class="nav-link" active-class="active" id="grecibo">
+                                             <b> Generar Recibo</b>
+                                          </router-link> -->
+                                      </li>
+                              </div>
+                      </li>
+                  </ul>
+              </div>
+  </header>
+
+      <div class='carrusel'>
+          <div class="carrusel-img">
+              <ul class="img-carrusel">
+                  <li><img src="../assets/background2.jpg" alt="No cargó"></li>
+                  <li><img src="../assets/diapo3.png" alt="No cargó"></li>
+                  <li><img src="../assets/diapo2.png" alt="No cargó"></li>
+                  <li><img src="../assets/diapo1.png" alt="No cargó"></li>
+              </ul>
+          </div>
+          <h1 id="titulo1" class="titulo1"><b>Nuestros Productos</b></h1>
+          <h2 id="titulo2">SALVATOS</h2>
+     </div>
+   <div id="lista-cursos" class="col-9">
+              <div class="row" id="productosVector">
+                  <div class="col-4" id="salvatos" v-for="(productos, i) in productosVector" :key="i">
+                      <div class="card" id="salvatos">
+                          <img src="../assets/salvato_clasico.jpg" class="imagen-curso u-full-width">
+                              <div class="info-card">
+                                  <h4 ><b><!-- {{productos.nombreProducto}} --></b></h4>
+                                  <p ><!-- {{productos.descripcion}} --></p>
+                                 <p  class="precio"><span ><!-- ${{productos.precio} -->}</span></p>
+                              <a  ref="agregar" href="#" class="u-full-width button-primary button input agregar-carrito"  :data-id=productos.id><b>Agregar Al Carrito</b></a>
+                           </div>
+                      </div>
+               </div>
+          </div>
+      </div>
+  </div>

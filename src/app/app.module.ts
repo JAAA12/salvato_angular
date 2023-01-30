@@ -7,11 +7,15 @@ import { MatMenuModule } from "@angular/material/menu";
 import { HomeComponent } from './home/home.component';
 import { RouterModule,Routes } from '@angular/router';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { ProductosComponent } from './productos/productos.component';
+import { UbicacionComponent } from './ubicacion/ubicacion.component';
 
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
   {path:'nosotros', component:NosotrosComponent},
+  {path:'productos', component:ProductosComponent},
+  {path:'ubicacion', component:UbicacionComponent},
   /* los asterístcos le dicen que si es diferente */
    /* el path del error debe ir SIEMPRE de último */
 ];
@@ -20,7 +24,9 @@ const appRoutes:Routes=[
   declarations: [
     AppComponent,
     HomeComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    ProductosComponent,
+    UbicacionComponent,
   ],
   imports: [
     BrowserModule,
