@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatMenuModule } from "@angular/material/menu";
@@ -14,7 +15,7 @@ import { UbicacionComponent } from './ubicacion/ubicacion.component';
 import { DataService } from './DataService';
 import { LoginComponent } from './login/login.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
-
+import { UsuariosService } from "./usuarios.service";
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
@@ -22,6 +23,7 @@ const appRoutes:Routes=[
   {path:'productos', component:ProductosComponent},
   {path:'ubicacion', component:UbicacionComponent},
   {path:'registrarUsuario', component:RegistrarseComponent},
+  {path:'login', component:LoginComponent},
   /* los asterístcos le dicen que si es diferente */
    /* el path del error debe ir SIEMPRE de último */
 ];
@@ -42,9 +44,10 @@ const appRoutes:Routes=[
     MatMenuModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [DataService],
+  providers: [DataService,UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

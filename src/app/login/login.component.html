@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="logoImg">
+      <img src="../assets/Logosalvato.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form v-on:submit.prevent="login">
+
+        <select  name="LeaveType" class="form-control" id="perfil" v-model="key" >
+            <option value="" disabled>Seleccione Rol</option>
+            <option :value="true">Cliente</option>
+            <option :value="false">Administrador</option>
+        </select>
+    <div class="cliente" v-if="(key)">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="nombre">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
+    </div>
+    <div class="Administrador" v-if="(key===false)" >
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="nombreAdmi">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="passwordAdmi">
+    </div>
+<!--       <input type="validar" id="validar" class="fadeIn third" name="login" placeholder="Validar" v-model="password">
+ -->      <button class="btnIngresar">
+          Ingresar
+        </button>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+    <p class="registro">¿No tienes cuenta? <!-- <router-link to="/registro" id="enla" class="nav-link" active-class="active"
+            ><b>Registrarse</b></router-link -->
+          </p>
+          <a href="registrarUsuario">Registrate</a>
+    </div>
+
+  </div>
+</div>
