@@ -8,26 +8,32 @@
     </div>
 
     <!-- Login Form -->
-    <form v-on:submit.prevent="login">
+    <!-- <form v-on:submit.prevent="login"> -->
 
-        <select  name="LeaveType" class="form-control" id="perfil" v-model="key" >
+        <select class="form-control" id="perfil" [(ngModel)]="condicion" name="condicion" >
             <option value="" disabled>Seleccione Rol</option>
-            <option :value="true">Cliente</option>
-            <option :value="false">Administrador</option>
+            <option value=true (click)="valor()">Cliente</option>
+            <option value=false (click)="valor()">Administrador</option>
         </select>
-    <div class="cliente" v-if="(key)">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="nombre">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
-    </div>
-    <div class="Administrador" v-if="(key===false)" >
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="nombreAdmi">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="passwordAdmi">
-    </div>
+        <ng-container *ngIf="condicion">
+          <div class="cliente" >
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" >
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" >
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="condicion==false">
+          <div class="Administrador"  >
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="UsuarioAdmi">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" >
+          </div>
+        </ng-container>
+
 <!--       <input type="validar" id="validar" class="fadeIn third" name="login" placeholder="Validar" v-model="password">
  -->      <button class="btnIngresar">
           Ingresar
         </button>
-    </form>
+   <!--  </form> -->
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
