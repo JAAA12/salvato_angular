@@ -4,12 +4,12 @@
   <div id="cuadro3" class="card">
     <div class="card-body">
       <h5 class="card-title">Datos Cliente</h5>
-      <form [formGroup]="pruebaForm" (ngSubmit)="submit()">
+      <!-- <form > -->
 
         <div class="form-group">
           <label for="formGroupExampleInput">Nombre</label>
           <input
-          formControlName="nombre"
+          [(ngModel)]="nombre"
             type="text"
             class="form-control"
             placeholder="Nombre"
@@ -18,7 +18,7 @@
         <div class="form-group">
           <label for="formGroupExampleInput2">E-mail</label>
           <input
-          formControlName="email"
+          [(ngModel)]="email"
             type="email"
             class="form-control"
             placeholder="E-mail"
@@ -27,16 +27,16 @@
         <div class="form-group">
           <label for="formGroupExampleInput2">Contraseña</label>
           <input
-          formControlName="password"
+          [(ngModel)]="password"
             type="password"
             class="form-control"
             placeholder="Contraseña"
           />
         </div>
-        <button style="color:white" class="btn" (click)="agregarEmpleado()">
+        <button style="color:white" class="btn" (click)="agregarUsuario()">
           Registrarse
         </button>
-      </form>
+     <!--  </form> -->
       <!-- <router-link to="/login" style="color:white" class="btn" active-class="active"
           >Volver</router-link> -->
     </div>

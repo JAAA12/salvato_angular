@@ -11,6 +11,6 @@ export class UsuariosService{
   agregarUsuarioService(newUser:registro){
     this.usuarios.push(newUser);
     this.dataService.guardarUsuarios(this.usuarios);
-    alert('se agregó'+this.usuarios)
+    alert('Se registró correctamente')
   }
 }
