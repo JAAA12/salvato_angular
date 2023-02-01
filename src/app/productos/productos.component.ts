@@ -1,6 +1,7 @@
 import { Attribute, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { DataService } from '../DataService';
-
+import { UsuariosService } from "../usuarios.service";
+import { registroProductos } from "../registro-productos/registrarProductos";
 
 @Component({
   selector: 'productos',
@@ -11,7 +12,16 @@ export class ProductosComponent {
   /*[innerHtml]="htmlToAdd"  htmlToAdd = '<div class="two">two</div>'; *//* cambiar la info html */
  // @ViewChild('asTitle') title?: ElementRef;
 
-  constructor(private render2:Renderer2, private dataservice:DataService){}
+  constructor(private render2:Renderer2, private dataservice:DataService, private usuarioService:UsuariosService){
+    this.usuarioService.obtenerProductos().subscribe(newProduct=>{
+      console.log(newProduct);
+      this.productos=Object.values(newProduct);
+
+      this.usuarioService.setProductos(this.productos);
+    });
+  }
+
+  productos:registroProductos[]=[]
  // mostrar(){
  //   const asTitle = this.title?.nativeElement;
   //  console.log(asTitle);
@@ -26,7 +36,7 @@ export class ProductosComponent {
   } */
 
 
-   @ViewChild('carro') carrito?: ElementRef;   contenedorCarrito = document.querySelector('#lista-carrito tbody');
+   /* @ViewChild('carro') carrito?: ElementRef;   contenedorCarrito = document.querySelector('#lista-carrito tbody');
    @ViewChild('thead') totalCarrito?: ElementRef;
    @ViewChild('vaciarCarrito') VaciarCarritoBtn?: ElementRef;
    @ViewChild('ListaProductos') liProductos?: ElementRef;
@@ -44,7 +54,7 @@ export class ProductosComponent {
       e.preventDefault();
       if(e.target.classList.contains('agrgarCarrito')){
         const productoSeleccionado=e.target.parentElement.parentElement
-        /* leerDatos(productoSeleccionado) */
+
       }
     };
 
@@ -52,10 +62,10 @@ export class ProductosComponent {
       console.log(e.target.classList);
       if(e.target.classList.contains('borrar-curso')){
         const productoId = this.vaciar?.nativeElement;
-        /* this.renderer2.setStyle(myButton, 'backgroundColor', 'yellow'); */
+
         productoId.selectRootElement('')
         console.log(productoId)
       }
-    }
+    } */
 
 }
