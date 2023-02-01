@@ -54,12 +54,12 @@
               <div class="row" id="productosVector">
                   <div class="col-4" id="salvatos" v-for="(productos, i) in productosVector" :key="i">
                       <div class="card" id="salvatos">
-                          <img src="../assets/salvato_clasico.jpg" class="imagen-curso u-full-width">
+                          <img src={{productos.imagen}} class="imagen-curso u-full-width">
                               <div class="info-card">
-                                  <h4 ><b>{{productos.nombreProducto}}</b></h4>
+                                  <h4 ><b>{{i}} {{productos.nombreProducto}}</b></h4>
                                   <p >{{productos.descripcion}}</p>
                                  <p  class="precio"><span >${{productos.precio}}</span></p>
-                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito"  :data-id=productos.id #vaciar><b>Agregar Al Carrito</b></a>
+                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito"  :data-id=productos.id><b>Agregar Al Carrito</b></a>
                            </div>
                       </div>
                </div>

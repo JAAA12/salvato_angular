@@ -12,17 +12,17 @@
 
         <select class="form-control" id="perfil" [(ngModel)]="condicion" name="condicion" >
             <option value="" disabled>Seleccione Rol</option>
-            <option value=true (click)="valor()">Cliente</option>
-            <option value=false (click)="valor()">Administrador</option>
+            <option value=0 (click)="valor()">Cliente</option>
+            <option value=1 (click)="valor()">Administrador</option>
         </select>
-        <ng-container *ngIf="condicion">
+        <ng-container *ngIf="condicion==0">
           <div class="cliente" >
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" >
             <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" >
           </div>
         </ng-container>
 
-        <ng-container *ngIf="condicion==false">
+        <ng-container *ngIf="condicion==1">
           <div class="Administrador"  >
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="UsuarioAdmi">
             <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" >

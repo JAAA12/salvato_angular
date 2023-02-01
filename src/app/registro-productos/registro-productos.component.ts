@@ -13,6 +13,7 @@ export class RegistroProductosComponent {
 
 constructor(private builder:FormBuilder, private UsuarioService:UsuariosService){
   this.pruebaForm=this.builder.group({
+    imagen:['', Validators.required],
     nombreProducto:['',[Validators.required,Validators.maxLength(35)]],
     precio:[0, Validators.required],
     descripcion:['', [Validators.required, Validators.maxLength(50)]],
@@ -21,7 +22,6 @@ constructor(private builder:FormBuilder, private UsuarioService:UsuariosService)
   this.UsuarioService.obtenerProductos().subscribe(newProduct=>{
     console.log(newProduct);
     this.productos=Object.values(newProduct);
-
     this.UsuarioService.setProductos(this.productos);
   });
 }
@@ -30,7 +30,7 @@ productos:registroProductos[]=[]
 
 agregarProducto():any{
   const product=this.pruebaForm.value;
-  let newProduct=new registroProductos(product.nombreProducto, product.precio, product.descripcion);
+  let newProduct=new registroProductos(product.imagen,product.nombreProducto, product.precio, product.descripcion);
 
   this.UsuarioService.agregarProductoService(newProduct);
 }
@@ -42,4 +42,6 @@ submit(){
     console.log(this.pruebaForm.value)
   }
 }
+
+
 }

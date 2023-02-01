@@ -42,4 +42,19 @@ export class UsuariosService{
   obtenerProductos(){
     return this.dataService.cargarProductos();
   }
+
+  actualizarProductos(i:number, productos:registroProductos){
+    let productoModificado=this.productos[i];
+
+    productoModificado.nombreProducto=productos.nombreProducto;
+    productoModificado.precio=productos.precio;
+    productoModificado.descripcion=productos.descripcion;
+    productoModificado.imagen=productos.imagen;
+
+    this.dataService.modificarProductos(i,productos)
+  }
+  encontrarProducto(i:number){
+    let product:registroProductos=this.productos[i];
+    return product;
+}
 }

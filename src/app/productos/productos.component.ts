@@ -19,7 +19,10 @@ export class ProductosComponent {
 
       this.usuarioService.setProductos(this.productos);
     });
+
+    /* let productI:registroProductos=this.usuarioService.encontrarProducto(i); */
   }
+
 
   productos:registroProductos[]=[]
  // mostrar(){
@@ -67,5 +70,9 @@ export class ProductosComponent {
         console.log(productoId)
       }
     } */
+
+    agregarCarrito(){
+      this.productos.forEach(registroProductos=>console.log(registroProductos))
+    }
 
 }

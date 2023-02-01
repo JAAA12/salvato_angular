@@ -1,0 +1,5 @@
+<div>
+  <div *ngFor="let productos of productos; let i=index">
+    <a [routerLink]="['/actualizarProductos',i]" >{{ productos.nombreProducto }}</a>
+  </div >
+</div >

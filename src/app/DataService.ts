@@ -37,4 +37,13 @@ cargarProductos(){
   return this.httpClient.get('https://salvato-e00a7-default-rtdb.firebaseio.com/productos.json');
 }
 
+modificarProductos(i:number, productos:registroProductos){
+  let url='https://salvato-e00a7-default-rtdb.firebaseio.com/productos/'+i+'.json'
+
+  this.httpClient.put(url,productos).subscribe({
+   next: response=>{console.log('se ha modificado los productos: '+ response);},
+   error:error=> {console.log('Error: '+ error)}
+});
+}
+
 }

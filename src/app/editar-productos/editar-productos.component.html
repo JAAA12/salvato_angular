@@ -1,0 +1,21 @@
+<div>
+  <div >
+    <h5 ></h5>
+    <div >
+      <div >
+        <!-- <img src={{productos.imagen}} alt={{productos.imagen}} style="height: 100px;"> -->
+        <input type="text" [(ngModel)]="imagen">
+        <input type="text" [(ngModel)]="nombreProducto">
+        <input type="text" [(ngModel)]="precio">
+        <input type="text" [(ngModel)]="descripcion">
+      </div>
+
+    </div>
+  </div>
+
+  <button type="button" (click)="actualizarProduct()">Modificar</button>
+  <!-- <div v-else class="alert alert-danger" role="alert">
+    No hay datos disponibles
+  </div> -->
+  <!-- <router-link to="/pagos" class="btn btn-primary mt-3">Volver</router-link> -->
+</div>

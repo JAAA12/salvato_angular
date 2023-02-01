@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
- condicion?:boolean;
+ condicion?:number;
  valor(){
   console.log(this.condicion)
  }

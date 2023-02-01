@@ -7,6 +7,16 @@
       <form [formGroup]="pruebaForm" (ngSubmit)="submit()">
 
         <div class="form-group">
+          <label for="formGroupExampleInput">Imagen</label>
+          <input
+          formControlName="imagen"
+            type="url"
+            class="form-control"
+            placeholder="Imagen"
+          />
+          <span>Para agregar la imagen use esta url : ../assets/nombre_de_la_imagen.png(extensión)</span>
+        </div>
+        <div class="form-group">
           <label for="formGroupExampleInput">Nombre</label>
           <input
           formControlName="nombreProducto"
