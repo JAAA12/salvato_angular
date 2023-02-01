@@ -1,0 +1,44 @@
+<div class="registro">
+  <h3 class="registroH5">Registro</h3>
+
+  <div id="cuadro3" class="card">
+    <div class="card-body">
+      <h5 class="card-title">Datos Cliente</h5>
+      <form [formGroup]="pruebaForm" (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <label for="formGroupExampleInput">Nombre</label>
+          <input
+          formControlName="nombreProducto"
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Precio</label>
+          <input
+          formControlName="precio"
+            type="number"
+            class="form-control"
+            placeholder="Precio"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Descripción</label>
+          <input
+          formControlName="descripcion"
+            type="text"
+            class="form-control"
+            placeholder="Descripción"
+          />
+        </div>
+        <button style="color:white" class="btn" (click)="agregarProducto()" >
+          Registrar
+        </button>
+      </form>
+      <!-- <router-link to="/login" style="color:white" class="btn" active-class="active"
+          >Volver</router-link> -->
+    </div>
+  </div>
+</div>

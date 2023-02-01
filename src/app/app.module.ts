@@ -16,6 +16,7 @@ import { DataService } from './DataService';
 import { LoginComponent } from './login/login.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { UsuariosService } from "./usuarios.service";
+import { RegistroProductosComponent } from './registro-productos/registro-productos.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
@@ -24,6 +25,7 @@ const appRoutes:Routes=[
   {path:'ubicacion', component:UbicacionComponent},
   {path:'registrarUsuario', component:RegistrarseComponent},
   {path:'login', component:LoginComponent},
+  {path:'registroProductos', component:RegistroProductosComponent},
   /* los asterístcos le dicen que si es diferente */
    /* el path del error debe ir SIEMPRE de último */
 ];
@@ -37,6 +39,7 @@ const appRoutes:Routes=[
     UbicacionComponent,
     LoginComponent,
     RegistrarseComponent,
+    RegistroProductosComponent,
   ],
   imports: [
     BrowserModule,
