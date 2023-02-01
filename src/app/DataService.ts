@@ -14,4 +14,11 @@ export class DataService{
      error:error=> {console.log('Error: '+ error)}
   });
   }
+
+  cargarUsuarios(){
+
+    /* const token=this.loginService.getIdToken(); */
+    return this.httpClient.get('https://salvato-e00a7-default-rtdb.firebaseio.com/usuarios.json');
+  }
+
 }

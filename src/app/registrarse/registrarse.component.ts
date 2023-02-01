@@ -16,7 +16,14 @@ constructor(private builder:FormBuilder, private UsuarioService:UsuariosService)
     nombre:['',[Validators.required,Validators.maxLength(35)]],
     email:['', [Validators.email, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/)]],
     password:['', [Validators.required, Validators.minLength(8)]],
-  })
+  });
+
+  this.UsuarioService.obtenerUsuarios().subscribe(newUser=>{
+    console.log(newUser);
+    this.usuarios=Object.values(newUser);
+
+    this.UsuarioService.setUsuarios(this.usuarios);
+  });
 }
 
 usuarios:registro[]=[]
