@@ -13,12 +13,15 @@ export class EditarProductosComponent {
 
   constructor(private usuarioService:UsuariosService, private dataService:DataService, private router:Router, private route:ActivatedRoute){
     this.i=this.route.snapshot.params['id']
+
     let product:registroProductos=this.usuarioService.encontrarProducto(this.i);
 
     this.nombreProducto=product.nombreProducto;
     this.descripcion=product.descripcion;
     this.precio=product.precio;
     this.imagen=product.imagen;
+
+    /* this.accion=parseInt(this.route.snapshot.queryParams['accion']); */
 
 
     this.usuarioService.obtenerProductos().subscribe(newProduct=>{
@@ -30,15 +33,25 @@ export class EditarProductosComponent {
   }
 
   productos:registroProductos[]=[];
-  actualizarProduct():any{
+/*   accion:number; */
+  actualizarProduct(){
       let product=new registroProductos(this.imagen, this.nombreProducto, this.precio, this.descripcion);
 
       this.usuarioService.actualizarProductos(this.i, product);
-      /* this.router.navigate(['']) */
+      this.router.navigate(['/modificarProductos'])
+}
+
+eliminarProduct(){
+  this.usuarioService.eliminarProducto(this.i);
+  this.router.navigate(['/productos'])
 }
 nombreProducto:string="";
 precio:number=0;
 descripcion:string="";
 imagen:string='';
 i:number=0;
+
+volver(){
+  this.router.navigate(['/modificarProductos'])
+}
 }

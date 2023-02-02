@@ -46,4 +46,11 @@ modificarProductos(i:number, productos:registroProductos){
 });
 }
 
+eliminarProducto(i:number){
+  let url='https://salvato-e00a7-default-rtdb.firebaseio.com/productos/'+i+'.json'
+  this.httpClient.delete(url).subscribe({
+    next: response=>{console.log('se ha eliminado el producto: '+ response);},
+    error:error=> {console.log('Error: '+ error)}
+  });
+}
 }

@@ -51,10 +51,18 @@ export class UsuariosService{
     productoModificado.descripcion=productos.descripcion;
     productoModificado.imagen=productos.imagen;
 
-    this.dataService.modificarProductos(i,productos)
+    this.dataService.modificarProductos(i,productos);
   }
   encontrarProducto(i:number){
     let product:registroProductos=this.productos[i];
     return product;
+}
+
+eliminarProducto(i:number){
+  this.productos.splice(i,1);
+  this.dataService.eliminarProducto(i);
+  if(this.productos!=null){
+    this.dataService.guardarProductos(this.productos);
+  }
 }
 }
