@@ -65,4 +65,7 @@ eliminarProducto(i:number){
     this.dataService.guardarProductos(this.productos);
   }
 }
+idProducto(i:number){
+  this.dataService.idProducto(i);
+}
 }

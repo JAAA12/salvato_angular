@@ -59,7 +59,7 @@
                                   <h4 ><b> {{productos.nombreProducto}}</b></h4>
                                   <p >{{productos.descripcion}}</p>
                                  <p  class="precio"><span >${{productos.precio}}</span></p>
-                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito" #id id="{{productos.id}}" (click)="llenarCarritoHTML()" ><b>Agregar Al Carrito</b></a>
+                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito" #id id="{{productos.id}}" (click)="carrito(i)" ><b>Agregar Al Carrito</b></a>
                            </div>
                       </div>
                </div>

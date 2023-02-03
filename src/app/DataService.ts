@@ -54,4 +54,11 @@ eliminarProducto(i:number){
   });
 }
 
+idProducto(i:number){
+  let url='https://salvato-e00a7-default-rtdb.firebaseio.com/productos/'+i+'.json'
+  this.httpClient.get(url).subscribe({
+    next: response=>{console.log('id: '+ i);},
+    error:error=> {console.log('Error: '+ error)}
+  });
+}
 }

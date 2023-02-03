@@ -49,9 +49,9 @@ export class ProductosComponent {
     totalPedido = 0;
 */
 @ViewChild('asTitle') title?: ElementRef;
-@ViewChild('id') id?: ElementRef;
+@ViewChild('id') id?: number;
 
-llenarCarritoHTML(){
+llenarCarritoHTML(id:number){
   //borrar el HTML del contenedor
   const asTitle = this.title?.nativeElement;
 this.productos.forEach(producto =>{
@@ -60,12 +60,18 @@ this.productos.forEach(producto =>{
   <td> <img src=${producto.imagen} width="90"></td>
   <td> ${producto.nombreProducto} </td>
   <td> ${producto.precio} </td>
+  <td> <a href= "#" class="borrar-curso" data-id="${producto.id}">X</td>
   `;
   asTitle.appendChild(fila);
 });
-const id = this.id?.nativeElement;
-console.log(id)
+/* const id = this.id.valueOf; */
+/* console.log(this.usuarioService.idProducto(id)) */
 };
 
+carrito(id:number){
+  if(this.usuarioService.idProducto(id)==this.usuarioService.idProducto(id)){
+    this.llenarCarritoHTML(id);
+  }
+}
 
 }
