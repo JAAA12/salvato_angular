@@ -53,4 +53,5 @@ eliminarProducto(i:number){
     error:error=> {console.log('Error: '+ error)}
   });
 }
+
 }

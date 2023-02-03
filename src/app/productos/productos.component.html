@@ -20,7 +20,7 @@
 
                                               </tr>
                                           </thead>
-                                          <tbody>
+                                          <tbody #asTitle>
                                           </tbody>
                                       </table>
 
@@ -52,14 +52,14 @@
      </div>
    <div id="lista-cursos" *ngFor="let productos of productos; let i=index" class="col-9">
               <div class="row" id="productosVector">
-                  <div class="col-4" id="salvatos" v-for="(productos, i) in productosVector" :key="i">
+                  <div class="col-4" id="salvatos">
                       <div class="card" id="salvatos">
                           <img src={{productos.imagen}} class="imagen-curso u-full-width">
                               <div class="info-card">
                                   <h4 ><b> {{productos.nombreProducto}}</b></h4>
                                   <p >{{productos.descripcion}}</p>
                                  <p  class="precio"><span >${{productos.precio}}</span></p>
-                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito"  :data-id=productos.id><b>Agregar Al Carrito</b></a>
+                              <a  ref="agregar"  class="u-full-width button-primary button input agregar-carrito" #id id="{{productos.id}}" (click)="llenarCarritoHTML()" ><b>Agregar Al Carrito</b></a>
                            </div>
                       </div>
                </div>

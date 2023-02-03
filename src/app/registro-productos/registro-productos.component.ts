@@ -17,6 +17,7 @@ constructor(private builder:FormBuilder, private UsuarioService:UsuariosService)
     nombreProducto:['',[Validators.required,Validators.maxLength(35)]],
     precio:[0, Validators.required],
     descripcion:['', [Validators.required, Validators.maxLength(50)]],
+    id:[registroProductos.length + 1]
   });
 
   this.UsuarioService.obtenerProductos().subscribe(newProduct=>{
@@ -25,12 +26,13 @@ constructor(private builder:FormBuilder, private UsuarioService:UsuariosService)
     this.UsuarioService.setProductos(this.productos);
   });
 }
+;
 
 productos:registroProductos[]=[]
 
 agregarProducto():any{
   const product=this.pruebaForm.value;
-  let newProduct=new registroProductos(product.imagen,product.nombreProducto, product.precio, product.descripcion);
+  let newProduct=new registroProductos(product.imagen,product.nombreProducto, product.precio, product.descripcion, product.id);
 
   this.UsuarioService.agregarProductoService(newProduct);
 }

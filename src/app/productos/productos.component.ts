@@ -47,32 +47,25 @@ export class ProductosComponent {
    grecibo = document.querySelector('#grecibo')
     articuloCarrito = [];
     totalPedido = 0;
+*/
+@ViewChild('asTitle') title?: ElementRef;
+@ViewChild('id') id?: ElementRef;
 
+llenarCarritoHTML(){
+  //borrar el HTML del contenedor
+  const asTitle = this.title?.nativeElement;
+this.productos.forEach(producto =>{
+  const fila = document.createElement("tr");
+  fila.innerHTML = `
+  <td> <img src=${producto.imagen} width="90"></td>
+  <td> ${producto.nombreProducto} </td>
+  <td> ${producto.precio} </td>
+  `;
+  asTitle.appendChild(fila);
+});
+const id = this.id?.nativeElement;
+console.log(id)
+};
 
-    cargarEvento(){
-
-    };
-
-    agregarProductos(e:any){
-      e.preventDefault();
-      if(e.target.classList.contains('agrgarCarrito')){
-        const productoSeleccionado=e.target.parentElement.parentElement
-
-      }
-    };
-
-    eliminarProducto(e:any){
-      console.log(e.target.classList);
-      if(e.target.classList.contains('borrar-curso')){
-        const productoId = this.vaciar?.nativeElement;
-
-        productoId.selectRootElement('')
-        console.log(productoId)
-      }
-    } */
-
-    agregarCarrito(){
-      this.productos.forEach(registroProductos=>console.log(registroProductos))
-    }
 
 }

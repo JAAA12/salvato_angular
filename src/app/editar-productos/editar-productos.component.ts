@@ -35,7 +35,7 @@ export class EditarProductosComponent {
   productos:registroProductos[]=[];
 /*   accion:number; */
   actualizarProduct(){
-      let product=new registroProductos(this.imagen, this.nombreProducto, this.precio, this.descripcion);
+      let product=new registroProductos(this.imagen, this.nombreProducto, this.precio, this.descripcion, this.i);
 
       this.usuarioService.actualizarProductos(this.i, product);
       this.router.navigate(['/modificarProductos'])
@@ -43,6 +43,7 @@ export class EditarProductosComponent {
 
 eliminarProduct(){
   this.usuarioService.eliminarProducto(this.i);
+  this.productos.splice(this.i,1)
   this.router.navigate(['/productos'])
 }
 nombreProducto:string="";

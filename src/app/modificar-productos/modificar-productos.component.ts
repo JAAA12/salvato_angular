@@ -21,7 +21,7 @@ export class ModificarProductosComponent {
 
   productos:registroProductos[]=[];
   actualizarProduct():any{
-      let product=new registroProductos(this.imagen, this.nombreProducto, this.precio, this.descripcion);
+      let product=new registroProductos(this.imagen, this.nombreProducto, this.precio, this.descripcion, this.i);
 
       this.usuarioService.actualizarProductos(this.i, product);
       /* this.router.navigate(['']) */
