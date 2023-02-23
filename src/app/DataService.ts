@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { ElementRef, Injectable } from "@angular/core";
+import { map, Observable } from "rxjs";
 import { registro } from "./registrarse/registrarUsuario";
 import { registroProductos } from "./registro-productos/registrarProductos";
 
@@ -54,11 +55,16 @@ eliminarProducto(i:number){
   });
 }
 
+
 idProducto(i:number){
   let url='https://salvato-e00a7-default-rtdb.firebaseio.com/productos/'+i+'.json'
-  this.httpClient.get(url).subscribe({
-    next: response=>{console.log('id: '+ i);},
-    error:error=> {console.log('Error: '+ error)}
-  });
+  return this.httpClient.get(url).pipe(
+    map((res: any)=>({
+      id:i,
+      nombreProducto: res.nombreProducto,
+      precio: res.precio,
+      imagen: res.imagen
+    }))
+  )
 }
 }

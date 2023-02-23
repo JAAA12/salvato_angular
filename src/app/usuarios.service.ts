@@ -2,6 +2,7 @@ import { Inject, Injectable } from "@angular/core";
 import { registro } from "./registrarse/registrarUsuario";
 import { registroProductos } from "./registro-productos/registrarProductos";
 import { DataService } from "./DataService";
+import { Observable, Subject } from "rxjs";
 
 @Injectable()
 
@@ -65,7 +66,16 @@ eliminarProducto(i:number){
     this.dataService.guardarProductos(this.productos);
   }
 }
-idProducto(i:number){
-  this.dataService.idProducto(i);
+
+idProducto(i:number, pro:registroProductos){
+  let producto=this.productos[i];
+
+  producto.descripcion=pro.descripcion;
+  producto.id=i;
+  producto.imagen=pro.imagen;
+  producto.nombreProducto=pro.nombreProducto;
+  producto.precio=pro.precio;
+  this.dataService.idProducto(i)
 }
+
 }

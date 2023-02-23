@@ -2,6 +2,8 @@ import { Attribute, Component, ElementRef, Renderer2, ViewChild } from '@angular
 import { DataService } from '../DataService';
 import { UsuariosService } from "../usuarios.service";
 import { registroProductos } from "../registro-productos/registrarProductos";
+import { map, Observable } from 'rxjs';
+import { registro } from '../registrarse/registrarUsuario';
 
 @Component({
   selector: 'productos',
@@ -13,16 +15,26 @@ export class ProductosComponent {
  // @ViewChild('asTitle') title?: ElementRef;
 
   constructor(private render2:Renderer2, private dataservice:DataService, private usuarioService:UsuariosService){
-    this.usuarioService.obtenerProductos().subscribe(newProduct=>{
-      console.log(newProduct);
-      this.productos=Object.values(newProduct);
+    this.usuarioService.obtenerProductos().subscribe((data)=>{
+
+      const pro = data;
+      console.log(pro);
+      this.productos=Object.values(data);
 
       this.usuarioService.setProductos(this.productos);
+
     });
 
     /* let productI:registroProductos=this.usuarioService.encontrarProducto(i); */
   }
 
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+
+
+
+}
 
   productos:registroProductos[]=[]
  // mostrar(){
@@ -49,7 +61,7 @@ export class ProductosComponent {
     totalPedido = 0;
 */
 @ViewChild('asTitle') title?: ElementRef;
-@ViewChild('id') id?: number;
+@ViewChild('id') id: number;
 
 llenarCarritoHTML(id:number){
   //borrar el HTML del contenedor
@@ -67,11 +79,36 @@ this.productos.forEach(producto =>{
 /* const id = this.id.valueOf; */
 /* console.log(this.usuarioService.idProducto(id)) */
 };
+pro?:Observable<registroProductos[]>;
 
-carrito(id:number){
-  if(this.usuarioService.idProducto(id)==this.usuarioService.idProducto(id)){
-    this.llenarCarritoHTML(id);
-  }
+carrito(){
+  //this.dataservice.idProducto().pipe(map<registro, URL>(project: ( registroProductos) => unknown))
+
+}
+
+mostrar(i:number){
+
+  let producto=this.productos[i];
+  const asTitle = this.title?.nativeElement;
+  let cantidad = 1;
+  this.dataservice.idProducto(i).forEach(producto =>{
+    if(producto.id == this.id){
+      cantidad++
+    }
+    const fila = document.createElement("tr");
+
+    let total = producto.precio;
+    fila.innerHTML = `
+    <td> <img src=${producto.imagen} width="90"></td>
+    <td> ${producto.nombreProducto} </td>
+    <td> ${producto.precio} </td>
+    <td> ${cantidad} </td>
+    <td> ${total * cantidad} </td>
+    <td> <a href= "#" class="borrar-curso" data-id="${producto.id}">X${producto.id}</td>
+    `;
+    asTitle.appendChild(fila);
+  });
+
 }
 
 }

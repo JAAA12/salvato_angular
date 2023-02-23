@@ -15,10 +15,11 @@
             <option value=0 (click)="valor()">Cliente</option>
             <option value=1 (click)="valor()">Administrador</option>
         </select>
+        <form [formGroup]="login" (ngSubmit)="loginUsuario()">
         <ng-container *ngIf="condicion==0">
           <div class="cliente" >
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" >
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" >
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" formControlName="email">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" formControlName="password">
           </div>
         </ng-container>
 
@@ -33,6 +34,7 @@
  -->      <button class="btnIngresar">
           Ingresar
         </button>
+      </form>
    <!--  </form> -->
 
     <!-- Remind Passowrd -->
