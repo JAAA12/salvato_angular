@@ -62,6 +62,7 @@ ngOnInit(): void {
 */
 @ViewChild('asTitle') title?: ElementRef;
 @ViewChild('id') id: number;
+@ViewChild('totalCarrito') totalCarrito:ElementRef;
 
 llenarCarritoHTML(id:number){
   //borrar el HTML del contenedor
@@ -87,28 +88,40 @@ carrito(){
 }
 
 mostrar(i:number){
-
-  let producto=this.productos[i];
   const asTitle = this.title?.nativeElement;
+  const totalCarrito = this.totalCarrito.nativeElement;
   let cantidad = 1;
+  let totalPedido=0;
+
   this.dataservice.idProducto(i).forEach(producto =>{
-    if(producto.id == this.id){
-      cantidad++
-    }
+
+    let total = producto.precio * cantidad;
     const fila = document.createElement("tr");
 
-    let total = producto.precio;
     fila.innerHTML = `
     <td> <img src=${producto.imagen} width="90"></td>
     <td> ${producto.nombreProducto} </td>
     <td> ${producto.precio} </td>
     <td> ${cantidad} </td>
-    <td> ${total * cantidad} </td>
+    <td> ${total} </td>
     <td> <a href= "#" class="borrar-curso" data-id="${producto.id}">X${producto.id}</td>
     `;
+
+    totalPedido = totalPedido + total;
+
+    const filaTotal = document.createElement('tr');
+    filaTotal.innerHTML = `
+    <td>Total Pedido: ${totalPedido} </td>
+    `;
     asTitle.appendChild(fila);
+    this.limpiarHtmlTotal();
+    totalCarrito.appendChild(filaTotal);
   });
 
 }
 
+limpiarHtmlTotal(){
+  const totalCarrito = this.totalCarrito.nativeElement;
+  totalCarrito.innerHTML = "";
+};
 }
