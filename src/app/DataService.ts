@@ -63,7 +63,9 @@ idProducto(i:number){
       id:i,
       nombreProducto: res.nombreProducto,
       precio: res.precio,
-      imagen: res.imagen
+      imagen: res.imagen,
+      cantidad : 1,
+      total: res.precio
     }))
   )
 }
